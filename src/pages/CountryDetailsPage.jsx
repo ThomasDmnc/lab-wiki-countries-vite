@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 
-function CountryDetails() {
+function CountryDetailsPage() {
     const { countryId } = useParams();
 
     const [country, setCountry] = useState();
@@ -22,10 +22,10 @@ function CountryDetails() {
         fetchCountry();
     }, [country] )
 
-    return isLoading ? ( <h1>Loading…</h1>) : (
+    return isLoading ? ( <p>Loading…</p>) : (
         <>
             <h1>Country Details</h1>
-            <img src={`https://flagpedia.net/data/flags/icon/256x192/${country.alpha2Code.toLowerCase()}.png`}/>
+            <img className="mb-3 mt-3" src={`https://flagpedia.net/data/flags/icon/256x192/${country.alpha2Code.toLowerCase()}.png`}/>
             <h2>{country.name.common}</h2>
 
 
@@ -67,4 +67,4 @@ function CountryDetails() {
     )
 }
 
-export default CountryDetails;
+export default CountryDetailsPage;
